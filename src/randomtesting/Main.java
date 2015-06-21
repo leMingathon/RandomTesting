@@ -17,8 +17,8 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Hello World!");
+    public void start(Stage window) throws Exception {
+        window.setTitle("Hello World!");
 
         layout = new StackPane();
         mainScene = new Scene(layout, 350, 300);
@@ -34,7 +34,7 @@ public class Main extends Application {
 
         layout.getChildren().add(button);
 
-        primaryStage.setScene(mainScene);
-        primaryStage.show();
+        window.setScene(mainScene);
+        window.show();
     }
 }

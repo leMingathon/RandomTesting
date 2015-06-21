@@ -9,6 +9,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class Main extends Application {
     private VBox layout1;
     private Scene mainScene;
@@ -20,7 +22,8 @@ public class Main extends Application {
     private Scene scene2;
 
     private Label label2;
-    private Button button2;
+    private Button button2a;
+    private Button button2b;
 
     public static void main(String[] args) {
         launch(args);
@@ -32,7 +35,7 @@ public class Main extends Application {
 
         layout1 = new VBox(5);
         layout1.setAlignment(Pos.CENTER);
-        mainScene = new Scene(layout1, 350, 300);
+        mainScene = new Scene(layout1, 500, 300);
 
         label1 = new Label("Awesomeness!");
         button1 = new Button("Click me to go to Scene 2!");
@@ -44,15 +47,19 @@ public class Main extends Application {
 
         layout2 = new HBox(5);
         layout2.setAlignment(Pos.CENTER);
-        scene2 = new Scene(layout2, 500, 500);
+        scene2 = new Scene(layout2, 500, 300);
 
         label2 = new Label("Sup! This is Scene 2!");
-        button2 = new Button("Take me back to the Main Scene!");
-        button2.setOnAction(e -> {
+        button2a = new Button("Take me back to the Main Scene!");
+        button2a.setOnAction(e -> {
             window.setScene(mainScene);
         });
+        button2b = new Button("Show dialog box!");
+        button2b.setOnAction(e -> {
+            DialogBox.displayAlert("Dialog", "Hellooooooooooo!");
+        });
 
-        layout2.getChildren().addAll(label2, button2);
+        layout2.getChildren().addAll(label2, button2a, button2b);
 
         window.setScene(mainScene);
         window.show();

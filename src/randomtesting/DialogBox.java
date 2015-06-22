@@ -1,5 +1,6 @@
 package randomtesting;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,6 +19,7 @@ public class DialogBox {
         stage.initModality(Modality.APPLICATION_MODAL);
 
         VBox layout = new VBox(20);
+        layout.setPadding(new Insets(5, 5, 5, 5));
         layout.setAlignment(Pos.CENTER);
 
         Label label = new Label(message);
@@ -26,7 +28,7 @@ public class DialogBox {
 
         layout.getChildren().addAll(label, button);
         layout.setBorder(Border.EMPTY);
-        Scene scene = new Scene(layout, 200, 100);
+        Scene scene = new Scene(layout);
 
         stage.setScene(scene);
         stage.showAndWait();
@@ -37,7 +39,8 @@ public class DialogBox {
         stage.setTitle(title);
         stage.initModality(Modality.APPLICATION_MODAL);
 
-        VBox layout = new VBox(20);
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(5, 5, 5, 5));
         layout.setAlignment(Pos.CENTER);
 
         Label label = new Label(message);
@@ -54,7 +57,7 @@ public class DialogBox {
 
         layout.getChildren().addAll(label, yesButton, noButton);
         layout.setBorder(Border.EMPTY);
-        Scene scene = new Scene(layout, 200, 100);
+        Scene scene = new Scene(layout);
 
         stage.setScene(scene);
         stage.showAndWait();

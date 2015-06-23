@@ -143,7 +143,7 @@ public class Main extends Application {
         GridPane.setConstraints(button2a, 1, 5);
         button2b = new Button("Return to the Main Scene");
         button2b.setId("sexy-button");
-//        button2b.setOnAction(event -> window.setScene(mainScene));
+        button2b.setOnAction(event -> window.setScene(mainScene));
         GridPane.setConstraints(button2b, 0, 6, 2, 1);
 
         layout2.getChildren().addAll(label2, field2, checkBox2, choiceBox2, comboBox2, listView2,

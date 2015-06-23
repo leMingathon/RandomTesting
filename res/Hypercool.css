@@ -29,6 +29,6 @@
     -fx-background-radius: 4;
 }
 
-/*#sexy-button*/.button:pressed {
-    -fx-background-color: linear-gradient(to left, red, yellow);
+/*#sexy-button*/.button:pressed, .button:hover {
+    -fx-background-color: linear-gradient(to right, red, green, blue);
 }

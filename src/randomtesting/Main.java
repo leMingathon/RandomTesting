@@ -78,9 +78,11 @@ public class Main extends Application {
 //        field2.setOnKeyTyped(event -> DialogBox.displayAlert("Dialog", "Something just happened!"));
         GridPane.setConstraints(field2, 1, 0, 2, 1);
         checkBox2 = new CheckBox("Select me!");
+        checkBox2.setOnAction(event -> DialogBox.displayAlert("Dialog", "OMFG you clicked me!"));
         GridPane.setConstraints(checkBox2, 1, 1);
 
         choiceBox2 = new ChoiceBox<>();
+//        choiceBox2.getStyleClass().add("combo-choice");
         choiceBox2.getItems().addAll("Your mum", "Your dad", "Your face", "Your moustache");
         choiceBox2.setValue("Your face");
         // THIS IS QUITE LONG...
@@ -90,8 +92,9 @@ public class Main extends Application {
         GridPane.setConstraints(choiceBox2, 1, 2);
 
         comboBox2 = new ComboBox<>();
+        comboBox2.getStyleClass().add("combo-choice");
         comboBox2.getItems().addAll("My mum", "My dad", "My face", "My moustache");
-        comboBox2.setVisibleRowCount(2);
+//        comboBox2.setVisibleRowCount(2);
 //        comboBox2.setEditable(true);
 //        comboBox2.setValue("My moustache");
         comboBox2.setPromptText("Pick one of these dings!");
@@ -113,7 +116,7 @@ public class Main extends Application {
         parent1 = new TreeItem<>("Bob");
         parent2 = new TreeItem<>("Jenny");
         parent1.setExpanded(true);
-        parent2.setExpanded(true);
+//        parent2.setExpanded(true);
         child1a = new TreeItem<>("Fiace");
         child2a = new TreeItem<>("Murchie");
         child2b = new TreeItem<>("Murcheeeeeeee");
@@ -129,6 +132,7 @@ public class Main extends Application {
         GridPane.setConstraints(treeView2, 1, 4, 2, 1);
 
         button2a = new Button("Click this sexy thing!");
+        button2a.setOnKeyPressed(event -> button2a.fire());
         button2a.setOnAction(event -> {
             DialogBox.displayAlert("Dialog", "Value of field: " + field2.getText());
             DialogBox.displayAlert("Dialog", "Is the checkbox selected? " + (checkBox2.isSelected() ? "Yes" : "No"));
@@ -138,7 +142,8 @@ public class Main extends Application {
         });
         GridPane.setConstraints(button2a, 1, 5);
         button2b = new Button("Return to the Main Scene");
-        button2b.setOnAction(event -> window.setScene(mainScene));
+        button2b.setId("sexy-button");
+//        button2b.setOnAction(event -> window.setScene(mainScene));
         GridPane.setConstraints(button2b, 0, 6, 2, 1);
 
         layout2.getChildren().addAll(label2, field2, checkBox2, choiceBox2, comboBox2, listView2,

@@ -1,5 +1,34 @@
 .root {
     -fx-background-color: orange;
-    -fx-foreground-color: blue;
     -fx-font-family: "Comic Sans MS";
+}
+
+/*MUST BE LOWER CASE!*/
+.label {
+    -fx-text-fill: blue;
+}
+
+.check-box {
+    -fx-text-fill: white;
+    -fx-background-color: tomato;
+}
+
+/*Custom class*/
+.combo-choice {
+    -fx-color: blue;
+}
+
+/*ID*/
+#sexy-button {
+    -fx-text-fill: red;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to bottom right, pink, blue);
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+}
+
+/*#sexy-button*/.button:pressed {
+    -fx-background-color: linear-gradient(to left, red, yellow);
 }

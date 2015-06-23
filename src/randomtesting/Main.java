@@ -94,7 +94,7 @@ public class Main extends Application {
         comboBox2.setVisibleRowCount(2);
 //        comboBox2.setEditable(true);
 //        comboBox2.setValue("My moustache");
-//        comboBox2.setPromptText("Pick one of these dings!");
+        comboBox2.setPromptText("Pick one of these dings!");
         comboBox2.setOnAction(event -> DialogBox.displayAlert("Dialog", "Hey! You picked "
                 + comboBox2.getValue() + "! :D"));
         GridPane.setConstraints(comboBox2, 2, 2);
@@ -144,6 +144,9 @@ public class Main extends Application {
         layout2.getChildren().addAll(label2, field2, checkBox2, choiceBox2, comboBox2, listView2,
                 treeView2, button2a, button2b);
         scene2 = new Scene(layout2, 500, 300);
+        // This line of code is IMPORTANT!
+        scene2.getStylesheets().add(getClass().getResource("").toExternalForm());
+//        scene2.setUserAgentStylesheet(STYLESHEET_MODENA);
         // NOTE: initialise the Scene AFTER adding everything to the layout, and THEN request focus!
         button2a.requestFocus();
 

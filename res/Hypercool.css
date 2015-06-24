@@ -3,7 +3,7 @@
     -fx-font-family: "Comic Sans MS";
 }
 
-/*MUST BE LOWER CASE!*/
+/* MUST BE LOWER CASE! */
 .label {
     -fx-text-fill: blue;
 }
@@ -13,14 +13,15 @@
     -fx-background-color: tomato;
 }
 
-/*Custom class*/
+/* Custom class */
 .combo-choice {
     -fx-color: blue;
 }
 
-/*ID*/
+/* ID */
 #sexy-button {
-    -fx-text-fill: red;
+    -fx-text-fill: yellow;
+    -fx-background-color: purple;
 }
 
 .button {
@@ -29,6 +30,7 @@
     -fx-background-radius: 4;
 }
 
-/*#sexy-button*/.button:pressed, .button:hover {
-    -fx-background-color: linear-gradient(to right, red, green, blue);
+/* THERE MUST BE A RADIUS FOR radial-gradient! */
+.button:pressed {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, white, purple);
 }

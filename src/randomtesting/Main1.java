@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main1 extends Application {
     private Stage window;
 
     private VBox layout1;
@@ -22,7 +22,8 @@ public class Main extends Application {
     private GridPane layout2;
     private Scene scene2;
 
-    private Label label2;
+    private Label label2a;
+    private Label label2b;
     private TextField field2;
     private CheckBox checkBox2;
     private ChoiceBox<String> choiceBox2;
@@ -70,13 +71,21 @@ public class Main extends Application {
         layout2.setHgap(5);
         layout2.setVgap(10);
 
-        label2 = new Label("Sup! This is Scene 2!");
-        GridPane.setConstraints(label2, 0, 0);
+        label2a = new Label("Sup! This is Scene 2!");
+//        label2a.setWrapText(true);
+        GridPane.setConstraints(label2a, 0, 0);
+        label2b = new Label();
+//        label2b.setWrapText(true);
+        GridPane.setConstraints(label2b, 0, 1);
+
         field2 = new TextField();
         field2.setPrefWidth(200);
         field2.setPromptText("Type some stoooooff in here!");
 //        field2.setOnKeyTyped(event -> DialogBox.displayAlert("Dialog", "Something just happened!"));
         GridPane.setConstraints(field2, 1, 0, 2, 1);
+        // BINDING PROPERTIES!
+        label2b.textProperty().bind(field2.textProperty());
+
         checkBox2 = new CheckBox("Select me!");
         checkBox2.setOnAction(event -> DialogBox.displayAlert("Dialog", "OMFG you clicked me!"));
         GridPane.setConstraints(checkBox2, 1, 1);
@@ -144,9 +153,19 @@ public class Main extends Application {
         button2b = new Button("Return to the Main Scene");
         button2b.setId("sexy-button");
         button2b.setOnAction(event -> window.setScene(mainScene));
+        button2b.setOnMouseMoved(event -> {
+//            System.out.println("X: " + event.getX() + "; Y: " + event.getY());
+
+            button2b.setStyle(
+                    "-fx-background-color: " +
+                            "radial-gradient(center " + (event.getX() / button2b.getWidth() * 100.0) + "%"
+                            + " " + (event.getY() / button2b.getHeight() * 100.0) + "%" +
+                            ", radius 100%, white, purple);");
+        });
+        button2b.setOnMouseExited(event -> button2b.setStyle(""));
         GridPane.setConstraints(button2b, 0, 6, 2, 1);
 
-        layout2.getChildren().addAll(label2, field2, checkBox2, choiceBox2, comboBox2, listView2,
+        layout2.getChildren().addAll(label2a, label2b, field2, checkBox2, choiceBox2, comboBox2, listView2,
                 treeView2, button2a, button2b);
         scene2 = new Scene(layout2, 500, 300);
         // This line of code is IMPORTANT!
